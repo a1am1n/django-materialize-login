@@ -15,58 +15,53 @@ from django.views.generic import TemplateView
 
 #Login View
 def login_v(request):
-  msg=''
-  form=LoginForm()
-  print (request)
-  #import ipdb
-  #ipdb.set_trace()
-  print (request.user)
-  if request.user.is_authenticated():
-      return HttpResponseRedirect('/admin/')
-
-
-  else:
-    if request.method=="POST":
-      form=LoginForm(request.POST)
-      ctx={'form':'','msg':''}
-      if form.is_valid():
-        userid=form.cleaned_data['email']
-        password=form.cleaned_data['password']
-        auth_user=authenticate(username=userid,password=password)
-        print (auth_user)
-
+    msg=''
+    form=LoginForm()
+    print (request)
+    
+    print (request.user)
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/admin/')
+        
+    else:
+        if request.method=="POST":
+            form=LoginForm(request.POST)
+            
+        if form.is_valid():
+            userid=form.cleaned_data['email']
+            password=form.cleaned_data['password']
+            auth_user=authenticate(username=userid,password=password)
+            
+        # If user exist and is active. Authenticate and redirect to /admin/
         if auth_user is not None and auth_user.is_active:
-          login(request,auth_user)
-
-          return HttpResponseRedirect('/admin/')
+            login(request,auth_user)
+            return HttpResponseRedirect('/admin/')
           
         else:
-           msg='Credenciales incorrectas.'
+            msg='Wrong password'
+        
         form=LoginForm()
         auth_user=authenticate(username=userid,password=password)
         if auth_user is not None:
-          login(request,auth_user)
-          return HttpResponseRedirect('/admin/')
+            login(request,auth_user)
+            return HttpResponseRedirect('/admin/')
         
         else:
-          msg='Credenciales incorrectas.'
+            msg='Wrong password'
 
     return render(request, 'login.html', locals())
   
   
-
-''' The Signup  view'''
-
+#The Signup  view
 class SignUp(TemplateView):
-  
   def post(self,request, *args,**kwargs):
       msg=''
       form = SignUpForm(request.POST)
       password=None
       if form.is_valid():
-        email=form.cleaned_data['email']
-        password=form.cleaned_data['password']
-        confirm_password=form.cleaned_data['confirm_password']
+          email=form.cleaned_data['email']
+          password=form.cleaned_data['password']
+          confirm_password=form.cleaned_data['confirm_password']
       if (password!=confirm_password):
           msg='Passwords dot not match!'
           ctx={'form':form,'msg':msg}
@@ -90,7 +85,6 @@ class SignUp(TemplateView):
       if new_user is not None :
           login(request,new_user)
           return HttpResponseRedirect('/admin/')
-
       else:
           msg='Wrong info'
           form = SignUpForm()
