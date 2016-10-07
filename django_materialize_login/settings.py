@@ -74,7 +74,7 @@ TEMPLATES = [
         },
     },
 ]
-print (TEMPLATES)
+
 WSGI_APPLICATION = 'django_materialize_login.wsgi.application'
 
 

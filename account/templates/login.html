@@ -1,7 +1,6 @@
 {% extends 'login_base.html' %}
 
 <!-- Form tags from https://docs.djangoproject.com/en/1.10/topics/forms/ -->
-<!-- Form tags from https://docs.djangoproject.com/en/1.10/topics/forms/ -->
 
 {% load fontawesome %}
 {% block form%}
@@ -15,7 +14,7 @@
          
  <i class="prefix">{% fontawesome_icon 'user' color="gray" %}</i>
   
-   <label for="email" data-error="wrong" data-success="right"> Email</label>
+   <label class="active"  for="email" data-error="wrong" data-success="right"> Email</label>
    {{ form.email }}
    
   </div>
@@ -26,8 +25,16 @@
     <div class="input-field col s12">
             <i class="prefix">{% fontawesome_icon 'lock'  color="gray"%}</i>
 
-    <label for="{{ form.password_id }}" data-error="wrong" data-success="right"> Password</label>
+    <label  class="active" for="{{ form.password_id }}" data-error="wrong" data-success="right"> Password</label>
     {{ form.password }}
+</div>
+
+<div class="row">
+          <div class="input-field col s12">
+             <button type="submit" class="btn waves-effect waves-light col s12">
+      {% fontawesome_icon 'check' %} Sign In </button>
+          </div>
+          
 </div>
  
 {% endblock %}

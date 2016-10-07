@@ -17,9 +17,10 @@ from django.views.generic import TemplateView
 def login_v(request):
     msg=''
     form=LoginForm()
-    print (request)
+    auth_user=None
+    userid=None
+    password=None
     
-    print (request.user)
     if request.user.is_authenticated():
         return HttpResponseRedirect('/admin/')
         
@@ -92,7 +93,6 @@ class SignUp(TemplateView):
           return render(request,self.template_name,locals())
 
   def get(self, request, *args, **kwargs):
-      print (self)
       msg=''
       form = SignUpForm()
       if request.user.is_authenticated():

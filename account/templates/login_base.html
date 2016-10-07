@@ -19,15 +19,9 @@
     <!-- Page styles -->
     <link type="text/css" rel="stylesheet" href="{% static 'materialize/bin/materialize.css' %}"  media="screen,projection"/>
     <script src="{% static 'materialize/js/materialize.js' %}"  /> </script>
-    <script src="{% static 'materialize/js/cards.js' %}"  /> </script>
     <link rel="stylesheet" href="{% static 'materialize/bin/ghpages-materialize.css' %}"  media="screen,projection"/>
     <link rel="stylesheet" href="{% static 'materialize/bin/materialize.min.css' %}"  media="screen,projection"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.min.css">
-    <link rel="stylesheet" href="{{STATIC_URL}}materialize/bin/materialize.css"/>
-    <link type = "text/css" rel = "stylesheet" href= "{{STATIC_URL}}css/style.css"/>
-    
+
     <style>
 
    .form {
@@ -35,6 +29,7 @@
      margin-right:35%;
    }
     </style>
+  
   </head>
   
 {%endblock%}
@@ -71,18 +66,11 @@
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s12">
-             <button type="submit" class="btn waves-effect waves-light col s12">
-      {% fontawesome_icon 'check' %} Sign In </button>
-          </div>
-          
-        </div>
-        <div class="row">
           <div class="input-field col s6 m6 l6">
             <p class="margin medium-small"><a href="{% url 'register'%}">Register Now!</a></p>
           </div>
           <div class="input-field col s6 m6 l6">
-              <p class="margin right-align medium-small"><a href="forgot-password.html">Forgot password?</a></p>
+              <p class="margin right-align medium-small"><a href="">Forgot password?</a></p>
           </div>          
         </div>
  
@@ -93,6 +81,6 @@
 
 <!-- Must add javascript animation when you press activate-->
 {% block scripts %}
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+
+
 {% endblock %}

@@ -17,7 +17,7 @@
          
  <i class="prefix">{% fontawesome_icon 'user' color="gray" %}</i>
   
-   <label for="{{form.first_name.label }}" data-error="wrong" data-success="right"> {{form.first_name.label }}</label>
+   <label class="active" for="{{form.first_name.label }}" data-error="wrong" data-success="right"> {{form.first_name.label }}</label>
    {{ form.first_name }}
    
   </div>
@@ -31,7 +31,7 @@
          
  <i class="prefix">{% fontawesome_icon 'user' color="gray" %}</i>
   
-   <label for="{{form.last_name.id_last_name }}" data-error="wrong" data-success="right"> {{form.last_name.label }}</label>
+   <label class="active" for="{{form.last_name.id_last_name }}" data-error="wrong" data-success="right"> {{form.last_name.label }}</label>
    {{ form.last_name }}
    
   </div>
@@ -46,7 +46,7 @@
          
  <i class="prefix">{% fontawesome_icon 'user' color="gray" %}</i>
   
-   <label for="email" data-error="wrong" data-success="right"> Email</label>
+   <label class="active" for="email" data-error="wrong" data-success="right"> Email</label>
    {{ form.email }}
   </div>
   
@@ -58,7 +58,7 @@
     <div class="input-field col s12">
             <i class="prefix">{% fontawesome_icon 'lock'  color="gray"%}</i>
 
-    <label for="{{ form.password_id }}" data-error="wrong" data-success="right"> Password</label>
+    <label class="active" for="{{ form.password_id }}" data-error="wrong" data-success="right"> Password</label>
     {{ form.password }}
 </div>
 
@@ -69,8 +69,18 @@
     <div class="input-field col s12">
             <i class="prefix">{% fontawesome_icon 'lock'  color="gray"%}</i>
 
-    <label for="{{ form.confirm_password_id }}" data-error="wrong" data-success="right"> Password</label>
+    <label class="active" for="{{ form.confirm_password_id }}" data-error="wrong" data-success="right"> Password</label>
     {{ form.confirm_password }}
 </div>
  
+ 
+ 
+ <div class="row">
+          <div class="input-field col s12">
+             <button type="submit" class="btn waves-effect waves-light col s12">
+      {% fontawesome_icon 'check' %} Sign Up </button>
+          </div>
+          
+</div>
+        
 {% endblock %}
