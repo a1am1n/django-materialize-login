@@ -1,0 +1,76 @@
+{% extends 'login_base.html' %}
+
+<!-- Form tags from https://docs.djangoproject.com/en/1.10/topics/forms/ -->
+{% load fontawesome %}
+
+{% block form%}
+{% csrf_token %}
+
+<!-- Consider using a for here -->
+
+<!-- first name -->
+{{ form.non_field_errors }}
+
+     <span class="red-text text-darken-2">  {{ form.first_name.errors }}</span>
+   
+ <div class="input-field col s12">
+         
+ <i class="prefix">{% fontawesome_icon 'user' color="gray" %}</i>
+  
+   <label for="{{form.first_name.label }}" data-error="wrong" data-success="right"> {{form.first_name.label }}</label>
+   {{ form.first_name }}
+   
+  </div>
+
+<!-- last_name -->
+{{ form.non_field_errors }}
+
+      <span class="red-text text-darken-2">  {{ form.last_name.errors }}</span>
+   
+    <div class="input-field col s12">
+         
+ <i class="prefix">{% fontawesome_icon 'user' color="gray" %}</i>
+  
+   <label for="{{form.last_name.id_last_name }}" data-error="wrong" data-success="right"> {{form.last_name.label }}</label>
+   {{ form.last_name }}
+   
+  </div>
+
+
+<!-- email -->
+{{ form.non_field_errors }}
+
+      <span class="red-text text-darken-2">  {{ form.email.errors }}</span>
+   
+    <div class="input-field col s12">
+         
+ <i class="prefix">{% fontawesome_icon 'user' color="gray" %}</i>
+  
+   <label for="email" data-error="wrong" data-success="right"> Email</label>
+   {{ form.email }}
+  </div>
+  
+
+<!-- confirm password-->
+{{ form.non_field_errors }}
+      <span class="red-text text-darken-2">  {{ form.password.errors }}</span>
+    
+    <div class="input-field col s12">
+            <i class="prefix">{% fontawesome_icon 'lock'  color="gray"%}</i>
+
+    <label for="{{ form.password_id }}" data-error="wrong" data-success="right"> Password</label>
+    {{ form.password }}
+</div>
+
+<!-- confirm password-->
+{{ form.non_field_errors }}
+      <span class="red-text text-darken-2">  {{ form.confirm_password.errors }}</span>
+    
+    <div class="input-field col s12">
+            <i class="prefix">{% fontawesome_icon 'lock'  color="gray"%}</i>
+
+    <label for="{{ form.confirm_password_id }}" data-error="wrong" data-success="right"> Password</label>
+    {{ form.confirm_password }}
+</div>
+ 
+{% endblock %}
